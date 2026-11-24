@@ -29,12 +29,11 @@ class Hashtable:
                self.slots[hashedKey].data += data # Ändrad för labb A, lägger till en instans av ett bigram
                return True
             
-         if (self.size*2) == counter and tombstoneIndex == None: #2x size?
+         if (self.size*2) <= counter and tombstoneIndex == None: #2x size?
             print("Det finns inte plats för noden i hashtabellen")
             return False
          
-         hashedKey += 1
-         hashedKey = hashedKey%(len(self.slots))
+         hashedKey = (hashedKey+1)%(len(self.slots))
          counter += 1
 
       if tombstoneIndex == None:
@@ -49,7 +48,6 @@ class Hashtable:
          if self.slots[hashedKey] is not self.tombstone:
             if self.slots[hashedKey].key == key:
                return self.slots[hashedKey].data
-            hashedKey += 1
             hashedKey = (hashedKey+1)%(len(self.slots))    
          else:
             hashedKey = (hashedKey+1)%(len(self.slots))            
