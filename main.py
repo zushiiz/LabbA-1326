@@ -13,15 +13,38 @@ def findAllBigram():
                 if previousWord == "":
                     previousWord = word
                 else:
-                    bigram = previousWord + word
+                    bigram = f"{previousWord}|{word}"
                     bigramTable.store(bigram, 1)
                     previousWord = word
+    bigramTable.filterData(1) # Rids of all bigrams appearing once
     return bigramTable
+
+def nextWord(searchedWord, hashtable):
+    searchedWord = searchedWord.lower()
+    bigrams = set()
+    totalAppearence = 0
+    for node in hashtable.slots:
+        if node != None and node is not hashtable.tombstone:
+            splitBigram = node.key.split("|")
+            if searchedWord == splitBigram[0]:
+                totalAppearence += node.data
+                bigrams.add(node.key)
+
+    prevProb = 0
+    for bigram in bigrams:
+        print(bigram)
+        prob = hashtable.search(bigram) / totalAppearence
+        if prevProb < prob:
+            nextWord = bigram
+        print(f"{bigram} prob:{prob}%")
+        prevProb = prob
+    return nextWord
 
 
 def main():
     bigrams = findAllBigram()
     while(1):
         u = input(":")
-        print(bigrams.search(u))
+        print(f"Result {nextWord(u, bigrams)}")
+
 main()
