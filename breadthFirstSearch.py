@@ -19,7 +19,7 @@ def createBinTree(wordList):
             else:
                 wordList.put(word)   
 
-def main():
+def breadthFirstSearch():
     wordList = Bintree()
     oldList = Bintree()
     createBinTree(wordList)
@@ -62,8 +62,6 @@ def makeChildren(startNode, endWord, wordList, oldList, q):
         i += 1
     return True, None
     
-    
-
 def isPossible(endWord, oldList):
     if endWord.strip() in oldList:
         return True
@@ -76,6 +74,3 @@ def writeChain(node):
         return
     writeChain(node.parent)
     print(node)
-
-        
-main()
