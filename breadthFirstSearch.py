@@ -1,3 +1,9 @@
+"""
+Copied code from Labb 5
+Original written by Zixuan Huang and Simon Ek De Bernardo
+Modified by Zixuan Huang (zixuanhu@ug.kth.se) No use of AI
+Added 2026-11-24
+"""
 from bintreeFile import Bintree
 from linkedQFile import LinkedQ
 

@@ -1,3 +1,7 @@
+"""
+Written by Zixuan Huang (zixuanhu@ug.kth.se) No use of AI
+Created 2026-11-24
+"""
 from hashtable import Hashtable
 
 def findAllBigram():

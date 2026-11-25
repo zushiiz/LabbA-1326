@@ -1,3 +1,10 @@
+"""
+Copied code from Labb 7
+Original written by Zixuan Huang and Simon Ek De Bernardo
+Modified by Zixuan Huang (zixuanhu@ug.kth.se) No use of AI
+Added 2026-11-24
+"""
+
 class HashNode:
     def __init__(self, key = None, data = None):
       """key är nyckeln som anvands vid hashningen
