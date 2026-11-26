@@ -1,6 +1,13 @@
+"""
+Written by Zixuan Huang (zixuanhu@ug.kth.se) No use of AI
+Created 2026-11-25
+"""
 class Sequence:
-    def __init__(self, first, prob = 0):
-        self.sequence = [first]
+    def __init__(self, seq = [], prob = 0):
+        self.sequence = []
+        for e in seq:
+            self.sequence.append(e)
+        self.lastWord = self.sequence[len(self.sequence)-1]
         self.probability = prob
 
     def __str__(self):
@@ -14,6 +21,9 @@ class Sequence:
 
     def getProbability(self):
         return self.probability
+
+    def getSequence(self):
+        return self.sequence
 
     def addWord(self, word, p):
         self.sequence.append(word)
